@@ -41,7 +41,7 @@ if data['http_status'] == 200:
     write_data = open('.\data.csv', 'w', encoding='UTF-8')
     data_writer = csv.writer(write_data, lineterminator='\n')
 
-    ##filling header information
+    ##filling header information and list of id of questions
     for quest in data['questions']:
         data_header.append(quest['question'])
         question_id.append(quest['id'])
@@ -55,7 +55,6 @@ if data['http_status'] == 200:
         
         ##only if form was completed
         if response['completed'] != '0':
-
             ##check if 
             for i in range(0, len(question_id)):
                 if question_id[i] in response['answers']:
